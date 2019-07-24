@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hand.demo.mapper.StudentMapper">
+
+    <resultMap id="StudentMap" type="com.hand.demo.model.student.Student">
+        <id property="id" column="s_id"/>
+        <result property="name" column="s_name"/>
+        <result property="birth" column="s_birth"/>
+        <result property="sex" column="s_sex"/>
+    </resultMap>
+
+    <select id="getAllStudents" resultMap="StudentMap">
+        select s_id,s_name,s_birth,s_sex from student
+    </select>
+
+    <select id="getStudentById" resultMap="StudentMap">
+        select s_id,s_name,s_birth,s_sex from student where s_id = #{value}
+    </select>
+</mapper>
